@@ -3,6 +3,8 @@ using ModFinder.Mod;
 using ModFinder.Util;
 using NexusModsNET;
 using NexusModsNET.DataModels;
+using NGitLab;
+using NGitLab.Models;
 using Octokit;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,9 @@ var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
 github.Credentials = new Credentials(token);
 
 var nexus = NexusModsClient.Create(Environment.GetEnvironmentVariable("NEXUS_APITOKEN"), "Modfinder_WOTR", "0");
+
+var gitgudtoken = "API TOKEN HERE";
+var gitgud = new GitLabClient("https://gitgud.io/", gitgudtoken);
 
 var internalManifest = IOTool.FromString<List<ModManifest>>(Resources.internal_manifest);
 var generatedManifest = IOTool.FromString<List<ModManifest>>(Resources.Generated_Manifest);
@@ -143,6 +148,44 @@ foreach (var manifest in internalManifest)
             nexusMod.Description);
         updatedManifest.Add(newManifest);
         return newManifest;
+      }
+
+      if (manifest.Service.IsGitGud())
+      {
+        var repoInfo = manifest.Service.GitGud;
+        var repoURI = repoInfo.Owner + "/" + repoInfo.RepoName;
+        var repo = gitgud.GetRepository(repoURI);
+        var releases = gitgud.GetReleases(repoURI);
+        ReleaseInfo latest = null; 
+        try
+        {
+          latest = releases["latest"];
+        }
+        catch (IndexOutOfRangeException)
+        {
+          latest = releases.All.OrderBy(x => ModVersion.Parse(x.TagName)).LastOrDefault();
+        }
+        var readme = repo.Files.Get("README.me", repo.Branches["master"].ToString()).DecodedContent.ToString();
+        var releaseAsset = latest.Assets.Links;
+        var latestRelease = new Release(ModVersion.Parse(latest.TagName), url: releaseAsset[0].DirectAssetUrl);
+        var releaseHistory = new List<Release>();
+        foreach (var release in releases.GetAsync())
+        {
+          releaseHistory.Add(
+            new Release(ModVersion.Parse(release.TagName), url: null, release.Description));
+        }
+        releaseHistory.Sort((a, b) => b.Version.CompareTo(a.Version));
+
+        var lastUpdated = latest.ReleasedAt;
+        var newManifest =
+          new ModManifest(
+            manifest,
+            new VersionInfo(latestRelease, lastUpdated, releaseHistory.Take(10).ToList()),
+            lastChecked,
+            readme);
+        updatedManifest.Add(newManifest);
+        return newManifest;
+
       }
     }
     catch (Exception e)
