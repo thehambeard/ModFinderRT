@@ -110,7 +110,7 @@ namespace ModFinder.Mod
       {
         if (mod.ModId.Type == ModType.Portrait)
         {
-          foreach (var folder in Directory.EnumerateDirectories(Path.Combine(Main.WrathDataDir, "Portraits")))
+          foreach (var folder in Directory.EnumerateDirectories(Path.Combine(Main.RTDataDir, "Portraits")))
           {
             var earmarkPath = Path.Combine(folder, "Earmark.json");
             if (File.Exists(earmarkPath))

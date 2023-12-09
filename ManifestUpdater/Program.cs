@@ -3,8 +3,8 @@ using ModFinder.Mod;
 using ModFinder.Util;
 using NexusModsNET;
 using NexusModsNET.DataModels;
-using NGitLab;
-using NGitLab.Models;
+//using NGitLab;
+//using NGitLab.Models;
 using Octokit;
 using System;
 using System.Collections.Generic;
@@ -27,10 +27,10 @@ var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
 
 github.Credentials = new Credentials(token);
 
-var nexus = NexusModsClient.Create(Environment.GetEnvironmentVariable("NEXUS_APITOKEN"), "Modfinder_WOTR", "0");
+var nexus = NexusModsClient.Create(Environment.GetEnvironmentVariable("NEXUS_APITOKEN"), "Modfinder_RT", "0");
 
-var gitgudtoken = "API TOKEN HERE";
-var gitgud = new GitLabClient("https://gitgud.io/", gitgudtoken);
+//var gitgudtoken = "API TOKEN HERE";
+//var gitgud = new GitLabClient("https://gitgud.io/", gitgudtoken);
 
 var internalManifest = IOTool.FromString<List<ModManifest>>(Resources.internal_manifest);
 var generatedManifest = IOTool.FromString<List<ModManifest>>(Resources.Generated_Manifest);
@@ -116,15 +116,15 @@ foreach (var manifest in internalManifest)
       {
         var modID = manifest.Service.Nexus.ModID;
         var nexusFactory = NexusModsFactory.New(nexus);
-        var nexusMod = await nexusFactory.CreateModsInquirer().GetMod("pathfinderwrathoftherighteous", modID);
+        var nexusMod = await nexusFactory.CreateModsInquirer().GetMod("warhammer40kroguetrader", modID);
         var changelog =
-          await nexusFactory.CreateModsInquirer().GetModChangelogs("pathfinderwrathoftherighteous", modID);
-        var mod = await nexusFactory.CreateModFilesInquirer().GetModFilesAsync("pathfinderwrathoftherighteous", modID);
+          await nexusFactory.CreateModsInquirer().GetModChangelogs("warhammer40kroguetrader", modID);
+        var mod = await nexusFactory.CreateModFilesInquirer().GetModFilesAsync("warhammer40kroguetrader", modID);
 
         var latestVersion = ModVersion.Parse(nexusMod.Version);
         var latestFileID = mod.ModFiles.Where(f => f.Category == NexusModFileCategory.Main).Last().FileId;
         var downloadUrl =
-          @"https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/" + modID + @"?tab=files&file_id=" + latestFileID;
+          @"https://www.nexusmods.com/warhammer40kroguetrader/mods/" + modID + @"?tab=files&file_id=" + latestFileID;
 
         var releaseHistory = new List<Release>();
         if (changelog != null)
@@ -150,7 +150,7 @@ foreach (var manifest in internalManifest)
         return newManifest;
       }
 
-      if (manifest.Service.IsGitGud())
+      /*if (manifest.Service.IsGitGud())
       {
         var repoInfo = manifest.Service.GitGud;
         var repoURI = repoInfo.Owner + "/" + repoInfo.RepoName;
@@ -186,7 +186,7 @@ foreach (var manifest in internalManifest)
         updatedManifest.Add(newManifest);
         return newManifest;
 
-      }
+      }*/
     }
     catch (Exception e)
     {

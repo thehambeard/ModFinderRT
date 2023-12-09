@@ -2,8 +2,8 @@
 {
   public class Settings
   {
-    public string AutoWrathPath { get; set; }
-    public string WrathPath { get; set; }
+    public string AutoRTPath { get; set; }
+    public string RTPath { get; set; }
 
     private static Settings _Instance;
     public static Settings Load()

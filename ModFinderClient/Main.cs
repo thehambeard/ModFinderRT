@@ -37,7 +37,7 @@ namespace ModFinder
     }
 
     private static readonly string _appFolder =
-      Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Modfinder");
+      Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ModfinderRT");
 
     /// <summary>
     /// Get path to file in modfinder app folder
@@ -72,32 +72,32 @@ namespace ModFinder
     public static string AppDataRoot => Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)).FullName;
 
     /// <summary>
-    /// Wrath data directory, i.e. "%AppData%/../LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous"
+    /// RogueTrader data directory, i.e. "%AppData%/../LocalLow/Owlcat Games/Warhammer 40000 Rogue Trader"
     /// </summary>
-    public static string WrathDataDir => Path.Combine(AppDataRoot, "LocalLow", "Owlcat Games", "Pathfinder Wrath Of The Righteous");
+    public static string RTDataDir => Path.Combine(AppDataRoot, "LocalLow", "Owlcat Games", "Warhammer 40000 Rogue Trader");
 
     /// <summary>
-    /// Prompts user to manually input path to wrath
+    /// Prompts user to manually input path to RT
     /// </summary>
-    public static void GetWrathPathManual()
+    public static void GetRTPathManual()
     {
-      Logger.Log.Info($"WrathPath not found, prompting user.");
+      Logger.Log.Info($"RTPath not found, prompting user.");
       var dialog = new OpenFileDialog
       {
-        FileName = "Wrath",
+        FileName = "WH40KRT",
         DefaultExt = ".exe",
         Filter = "Executable (.exe)|*.exe",
-        Title = "Select Wrath.exe (in the installation directory)"
+        Title = "Select WH40KRT.exe (in the installation directory)"
       };
 
       var result = dialog.ShowDialog();
       if (result is not null && result.Value)
       {
-        _WrathPath = new(Path.GetDirectoryName(dialog.FileName));
+        _RTPath = new(Path.GetDirectoryName(dialog.FileName));
       }
       else
       {
-        Logger.Log.Error("Unable to find Wrath installation path.");
+        Logger.Log.Error("Unable to find RT installation path.");
       }
     }
     private static Regex extractGameVersion = new(".*?Found game version string: '(.*)'.*");
@@ -107,9 +107,9 @@ namespace ModFinder
     {
       get
       {
-        if (WrathPath == null) { return new(); }
+        if (RTPath == null) { return new(); }
 
-        var log = Path.Combine(WrathDataDir, "Player.log");
+        var log = Path.Combine(RTDataDir, "Player.log");
         if (!File.Exists(log))
         {
           return new();
@@ -135,7 +135,7 @@ namespace ModFinder
         }
         catch (Exception e)
         {
-          Logger.Log.Error("Unable to find Wrath game version", e);
+          Logger.Log.Error("Unable to find RT game version", e);
         }
 
         return new();
@@ -143,65 +143,65 @@ namespace ModFinder
     }
 
     /// <summary>
-    /// Path to the installed wrath folder
+    /// Path to the installed RT folder
     /// </summary>
-    public static DirectoryInfo WrathPath
+    public static DirectoryInfo RTPath
     {
       get
       {
-        if (_WrathPath != null) return _WrathPath;
+        if (_RTPath != null) return _RTPath;
 
-        if (Directory.Exists(Settings.WrathPath) && File.Exists(Path.Combine(Settings.WrathPath, "Wrath.exe")))
+        if (Directory.Exists(Settings.RTPath) && File.Exists(Path.Combine(Settings.RTPath, "WH40KRT.exe")))
         {
-          Logger.Log.Info($"Using WrathPath from settings: {Settings.WrathPath}");
-          _WrathPath = new(Settings.WrathPath);
+          Logger.Log.Info($"Using RTPath from settings: {Settings.RTPath}");
+          _RTPath = new(Settings.RTPath);
         }
-        else if (Directory.Exists(Settings.AutoWrathPath) && File.Exists(Path.Combine(Settings.AutoWrathPath, "Wrath.exe")))
+        else if (Directory.Exists(Settings.AutoRTPath) && File.Exists(Path.Combine(Settings.AutoRTPath, "WH40KRT.exe")))
         {
-          Logger.Log.Info($"Using auto WrathPath from settings: {Settings.AutoWrathPath}");
-          _WrathPath = new(Settings.AutoWrathPath);
+          Logger.Log.Info($"Using auto RTPath from settings: {Settings.AutoRTPath}");
+          _RTPath = new(Settings.AutoRTPath);
         }
         else
         {
-          var log = Path.Combine(WrathDataDir, "Player.log");
+          var log = Path.Combine(RTDataDir, "Player.log");
           if (!File.Exists(log))
           {
-            GetWrathPathManual();
+            GetRTPathManual();
           }
           else
           {
             try
             {
-              Logger.Log.Info($"Getting WrathPath from UMM log.");
+              Logger.Log.Info($"Getting RTPath from UMM log.");
 
               using var sr = new StreamReader(File.OpenRead(log));
               var firstline = sr.ReadLine();
 
               var extractPath = new Regex(".*?'(.*)'");
-              _WrathPath = new(extractPath.Match(firstline).Groups[1].Value);
-              _WrathPath = _WrathPath.Parent.Parent;
+              _RTPath = new(extractPath.Match(firstline).Groups[1].Value);
+              _RTPath = _RTPath.Parent.Parent;
             }
             catch (Exception e)
             {
-              Logger.Log.Error("Unable to find Wrath installation path, Prompting manual input.", e);
-              GetWrathPathManual();
+              Logger.Log.Error("Unable to find RT installation path, Prompting manual input.", e);
+              GetRTPathManual();
             }
           }
 
-          Settings.AutoWrathPath = WrathPath.FullName;
+          Settings.AutoRTPath = RTPath.FullName;
           Settings.Save();
         }
 
         GameVersion = GameVersionRaw;
-        return _WrathPath;
+        return _RTPath;
       }
     }
 
     public static readonly string UMMParamsPath =
-      Path.Combine(Main.WrathPath.FullName, @"Wrath_Data\Managed\UnityModManager\Params.xml");
+      Path.Combine(Main.RTPath.FullName, @"WH40KRT_Data\Managed\UnityModManager\Params.xml");
 
-    public static readonly string UMMInstallPath = Path.Combine(WrathPath.FullName, "Mods");
+    public static readonly string UMMInstallPath = Path.Combine(RTPath.FullName, "Mods");
 
-    private static DirectoryInfo _WrathPath; 
+    private static DirectoryInfo _RTPath; 
   }
 }

@@ -108,9 +108,9 @@ namespace ModFinder.Mod
         case ModType.UMM:
           return Main.UMMInstallPath;
         case ModType.Owlcat:
-          return Path.Combine(Main.WrathDataDir, "Modifications");
+          return Path.Combine(Main.RTDataDir, "Modifications");
         case ModType.Portrait:
-          return Path.Combine(Main.WrathDataDir, "Portraits");
+          return Path.Combine(Main.RTDataDir, "Portraits");
         default:
           throw new Exception("Unrecognized Mod Type");
       }
@@ -270,8 +270,8 @@ namespace ModFinder.Mod
       }
       else
       {
-        var enumeratedFolders = Directory.EnumerateDirectories(Path.Combine(Main.WrathDataDir, "Portraits"));
-        var PortraitFolder = Path.Combine(Main.WrathDataDir, "Portraits");
+        var enumeratedFolders = Directory.EnumerateDirectories(Path.Combine(Main.RTDataDir, "Portraits"));
+        var PortraitFolder = Path.Combine(Main.RTDataDir, "Portraits");
         var tmpFolder = Path.Combine(Environment.GetEnvironmentVariable("TMP"), Guid.NewGuid().ToString());
         zip.ExtractToDirectory(tmpFolder);
         if (Directory.EnumerateDirectories(tmpFolder).Count() <= 1)
