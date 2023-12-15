@@ -410,7 +410,7 @@
 
           </Grid.ColumnDefinitions>
           <TextBlock x:Name="Header" FontSize="30" FontFamily="Constantia" FontWeight="Bold" Foreground="DarkSlateGray" Padding="0,0,0,10" Grid.Column="0">
-                        Modfinder: Wrath of the Righteous
+                        Modfinder: Rogue Trader
           </TextBlock>
           <TextBox
             Grid.Column="1" x:Name="Filter" Height="34" Width="250" FontFamily="Constantia" VerticalContentAlignment="Center"

@@ -197,10 +197,9 @@ namespace ModFinder
       }
     }
 
-    public static readonly string UMMParamsPath =
-      Path.Combine(RTDataDir, @"UnityModManager\Params.xml");
+    public static readonly string UMMParamsPath = Path.Combine(RTDataDir, @"UnityModManager\Params.xml");
 
-    public static readonly string UMMInstallPath = Path.Combine(RTPath.FullName, "Mods");
+    public static readonly string UMMInstallPath = Path.Combine(RTDataDir, "UnityModManager");
 
     private static DirectoryInfo _RTPath; 
   }

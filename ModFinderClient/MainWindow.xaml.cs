@@ -60,7 +60,7 @@ namespace ModFinder
         }
 #else
         Logger.Log.Verbose("Fetching remote manifest.");
-        var json = HttpHelper.GetResponseContent("https://raw.githubusercontent.com/Pathfinder-WOTR-Modding-Community/ModFinder/main/ManifestUpdater/Resources/master_manifest.json");
+        var json = HttpHelper.GetResponseContent("https://raw.githubusercontent.com/CasDragon/ModFinder/main/ManifestUpdater/Resources/master_manifest.json");
         Manifest = IOTool.FromString<MasterManifest>(json);
 #endif
 
@@ -114,7 +114,7 @@ namespace ModFinder
             client.Headers.Add("User-Agent", "ModFinder");
             var raw =
               await client.DownloadStringTaskAsync(
-                "https://api.github.com/repos/Pathfinder-WOTR-Modding-Community/ModFinder/releases/latest");
+                "https://api.github.com/repos/CasDragon/ModFinder/releases/latest");
             return JsonSerializer.Deserialize<JsonElement>(raw);
           })
         .ContinueWith(
