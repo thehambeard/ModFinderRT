@@ -214,7 +214,7 @@ foreach (var manifest in tasks.Select(t => t.Result).Where(r => r != null))
   LogObj("  Latest: ", manifest.Version.Latest.Version);
 }
 
-var targetUser = "Pathfinder-WOTR-Modding-Community";
+var targetUser = "CasDragon";
 var targetRepo = "ModFinder";
 var targetFile = "ManifestUpdater/Resources/generated_manifest.json";
 
@@ -229,7 +229,7 @@ if (doUpload)
     new UpdateFileRequest("Update the mod manifest (bot)", serializedManifest, currentFile[0].Sha, "main", true);
   var newblob = new NewBlob();
   newblob.Content = serializedManifest;
-  var blob = await github.Git.Blob.Create("Pathfinder-WOTR-Modding-Community", "ModFinder", newblob);
+  var blob = await github.Git.Blob.Create("CasDragon", "ModFinder", newblob);
   if (blob.Sha != updateFile.Sha)
   {
     var result = await github.Repository.Content.UpdateFile(targetUser, targetRepo, targetFile, updateFile);
@@ -242,7 +242,7 @@ if (doUpload)
 }
 else
 {
-  File.WriteAllText(@"C:\Users\worce\source\repos\ModFinder_Shared\ModFinderClient\test_generated.json", serializedManifest);
+  File.WriteAllText(@"C:\Users\Kyle\source\repos\ModFinder\ModFinderClient\test_generated.json", serializedManifest);
 }
 
 void Log(string str)

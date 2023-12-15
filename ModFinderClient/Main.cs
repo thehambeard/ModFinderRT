@@ -198,7 +198,7 @@ namespace ModFinder
     }
 
     public static readonly string UMMParamsPath =
-      Path.Combine(Main.RTPath.FullName, @"WH40KRT_Data\Managed\UnityModManager\Params.xml");
+      Path.Combine(RTDataDir, @"UnityModManager\Params.xml");
 
     public static readonly string UMMInstallPath = Path.Combine(RTPath.FullName, "Mods");
 
