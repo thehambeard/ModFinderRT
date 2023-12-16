@@ -252,25 +252,32 @@ namespace ModFinder.Mod
       //Non-portrait mods just extract to the destination directory
       if (modType != ModType.Portrait)
       {
-        await Task.Run(() =>
-        {
-          if (rootInZip != null)
+        try {
+          await Task.Run(() =>
           {
-            Directory.CreateDirectory(destination);
-            foreach (var entry in zip.Entries.Where(e => e.FullName.Length > rootInZip.Length && e.FullName.StartsWith(rootInZip)))
+            if (rootInZip != null)
             {
-              string entryDest = Path.Combine(destination, entry.FullName[rootInZip.Length..]);
-              if (entry.FullName.EndsWith("/"))
-                Directory.CreateDirectory(entryDest);
-              else
-                WriteToDirectory(entry, destination, rootInZip.Length);
+              Directory.CreateDirectory(destination);
+              foreach (var entry in zip.Entries.Where(e => e.FullName.Length > rootInZip.Length && e.FullName.StartsWith(rootInZip)))
+              {
+                string entryDest = Path.Combine(destination, entry.FullName[rootInZip.Length..]);
+                if (entry.FullName.EndsWith("/"))
+                  Directory.CreateDirectory(entryDest);
+                else
+                  WriteToDirectory(entry, destination, rootInZip.Length);
+              }
             }
-          }
-          else
-          {
-            zip.ExtractToDirectory(destination, true);
-          }
-        });
+            else
+            {
+              Logger.Log.Verbose(destination);
+              zip.ExtractToDirectory(destination, true);
+            }
+          });
+        }
+        catch (Exception ex)
+        {
+          Logger.Log.Verbose(ex.ToString());
+        }
       }
       else
       {
