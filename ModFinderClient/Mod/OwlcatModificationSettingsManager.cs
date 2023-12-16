@@ -58,7 +58,7 @@ namespace ModFinder.Mod
     }
 
     private static string SettingsPath => Path.Combine(Main.RTDataDir, "OwlcatModificationManagerSettings.json");
-    private static string OldSettingsPath => Path.Combine(Main.RTDataDir, "OwlcatModificationManangerSettings.json");
+    private static string OldSettingsPath => Path.Combine(Main.RTDataDir, "OwlcatModificationManagerSettings.json");
 
     private SettingsData _Data;
     private SettingsData OwlcatSettings => _Data ??= Load();

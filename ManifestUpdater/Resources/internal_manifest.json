@@ -27,11 +27,46 @@
     },
     "Service": {
       "Nexus": {
-        "Owner": "14"
+        "ModID": "14"
       }
     },
     "About": "Adds couple of new keybindings",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/14",
+    "Tags": [ "Gameplay", "Utilities" ]
+  },
+
+  {
+    "Name": "MicroPatches",
+    "Author": "Microsoftenator",
+    "Id": {
+      "Id": "MicroPatches",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "microsoftenator2022",
+        "RepoName": "MicroPatches"
+      }
+    },
+    "About": "Tiny patches attempting to fix minor bugs and silence annoying log messages. Experimental patches require more testing and can be toggled in the mod settings (requires restart to take effect). If you encounter any issues with an experimental patch, let me know in the issues on this repository.",
+    "HomepageUrl": "https://github.com/microsoftenator2022/MicroPatches",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Rechargeable Grenades",
+    "Author": "Arkive",
+    "Id": {
+      "Id": "RechargeableGrenades",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "44"
+      }
+    },
+    "About": "Basic grenades recharge at the end of combat.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/44",
     "Tags": [ "Gameplay", "Utilities" ]
   },
 

@@ -230,12 +230,16 @@ namespace ModFinder.Mod
         Logger.Log.Verbose($"Creating mod directory. \"{destination}\"");
         // Handle mods without a folder in the zip
         destination = modType == ModType.Portrait ? destination : Path.Combine(destination, info.ModId);
+        Logger.Log.Verbose($"Finished creating mod directory. \"{destination}\"");
       }
 
       static void WriteToDirectory(ZipArchiveEntry entry, string destDirectory, int stripLeading)
       {
+        Logger.Log.Verbose($"Starting to WriteToDirectory, destination \"{destDirectory}\"");
         string destFileName = Path.GetFullPath(Path.Combine(destDirectory, entry.FullName[stripLeading..]));
+        Logger.Log.Verbose($"destination file name is  \"{destDirectory}\"");
         string fullDestDirPath = Path.GetFullPath(destDirectory + Path.DirectorySeparatorChar);
+        Logger.Log.Verbose($"Full destination path is  \"{destDirectory}\"");
         if (!destFileName.StartsWith(fullDestDirPath))
         {
           throw new System.InvalidOperationException("Entry is outside the target dir: " + destFileName);
@@ -255,7 +259,7 @@ namespace ModFinder.Mod
             Directory.CreateDirectory(destination);
             foreach (var entry in zip.Entries.Where(e => e.FullName.Length > rootInZip.Length && e.FullName.StartsWith(rootInZip)))
             {
-              string entryDest = destination + "\\" + entry.FullName[rootInZip.Length..];
+              string entryDest = Path.Combine(destination, entry.FullName[rootInZip.Length..]);
               if (entry.FullName.EndsWith("/"))
                 Directory.CreateDirectory(entryDest);
               else
