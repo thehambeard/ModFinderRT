@@ -249,6 +249,30 @@ namespace ModFinder.Mod
         entry.ExtractToFile(destFileName, true);
       }
 
+      static void ExtractInParts(ZipArchive zip, string destination)
+      {
+        foreach (var part in zip.Entries)
+        {
+          if (part.Name.ToString() != "")
+          {
+            //Logger.Log.Verbose(part.FullName.ToString());
+            var extPath = Path.Combine(destination, part.FullName);
+            //Logger.Log.Verbose(extPath.ToString());
+            try
+            {
+              part.ExtractToFile(extPath, true);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+              var tempPath = extPath.Replace(part.Name, "");
+              //Logger.Log.Verbose(tempPath.ToString());
+              Directory.CreateDirectory(tempPath);
+            }
+          }
+        }
+        return;
+      }
+
       //Non-portrait mods just extract to the destination directory
       if (modType != ModType.Portrait)
       {
@@ -274,9 +298,10 @@ namespace ModFinder.Mod
             }
           });
         }
-        catch (Exception ex)
+        catch (IOException ex)
         {
           Logger.Log.Verbose(ex.ToString());
+          ExtractInParts(zip, destination);
         }
       }
       else
