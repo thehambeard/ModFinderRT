@@ -45,7 +45,7 @@ Ask the mod developer to add it or file an [issue](https://github.com/CasDragon/
 
 ## For Mod Devs
 
-Currently ModFinder only supports UMM mods hosted on Nexus or GitHub.
+Currently ModFinder only supports mods hosted on Nexus or GitHub. It can handle both Owlcat Template mods and UMM based mods.
 
 To add (or change details about) your mod:
 
