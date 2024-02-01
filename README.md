@@ -49,7 +49,7 @@ Currently ModFinder only supports mods hosted on Nexus or GitHub. It can handle 
 
 To add (or change details about) your mod:
 
-1. Update [internal_manifest.json](https://github.com/CasDragon/ModFinder/blob/main/ManifestUpdater/Resources/internal_manifest.json)
+1. Update [internal_manifest.json](https://github.com/CasDragon/ModFinder/blob/RogueTrader/ManifestUpdater/Resources/internal_manifest.json)
     * Don't include any version data or description, this is automatically updated roughly every 2 hours
     * You can submit a PR or file an issue
     
