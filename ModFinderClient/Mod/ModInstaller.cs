@@ -251,13 +251,15 @@ namespace ModFinder.Mod
 
       static void ExtractInParts(ZipArchive zip, string destination)
       {
+        Logger.Log.Verbose("Starting to extract in parts");
         foreach (var part in zip.Entries)
         {
           if (part.Name.ToString() != "")
           {
-            //Logger.Log.Verbose(part.FullName.ToString());
+            Logger.Log.Verbose("[Line 259] Destination is - " + destination.ToString());
+            Logger.Log.Verbose("[Line 260] File is - " + part.FullName.ToString());
             var extPath = Path.Combine(destination, part.FullName);
-            //Logger.Log.Verbose(extPath.ToString());
+            Logger.Log.Verbose("[Line 262] Full path is - " + extPath.ToString());
             try
             {
               part.ExtractToFile(extPath, true);
@@ -267,6 +269,13 @@ namespace ModFinder.Mod
               var tempPath = extPath.Replace(part.Name, "");
               //Logger.Log.Verbose(tempPath.ToString());
               Directory.CreateDirectory(tempPath);
+            }
+            catch (Exception ex)
+            {
+              Logger.Log.Verbose("[Line 275] Destination is - " + destination.ToString());
+              Logger.Log.Verbose("[Line 276] File is - " + part.FullName.ToString());
+              Logger.Log.Verbose("[Line 277] Full path is - " + extPath.ToString());
+              Logger.Log.Verbose(ex.ToString());
             }
           }
         }
@@ -300,6 +309,7 @@ namespace ModFinder.Mod
         }
         catch (IOException ex)
         {
+          Logger.Log.Verbose("[Line 311] Destination is - " + destination.ToString());
           Logger.Log.Verbose(ex.ToString());
           ExtractInParts(zip, destination);
         }

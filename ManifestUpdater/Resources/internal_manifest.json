@@ -19,6 +19,23 @@
   },
 
   {
+    "Name": "Better Type Sorting",
+    "Author": "Arkive",
+    "Id": {
+      "Id": "BetterTypeSorting",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "94"
+      }
+    },
+    "About": "This UMM mod patches inventory type sorting, so it sorts by subtypes, families, catgories, handedness, etc within weapons and armor categories ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/94",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Enhanced Controls",
     "Author": "AlterAsc",
     "Id": {
@@ -26,13 +43,31 @@
       "Type": "UMM"
     },
     "Service": {
-      "Nexus": {
-        "ModID": "14"
+      "Github": {
+        "Owner": "alterasc",
+        "RepoName": "EnhancedControls"
       }
     },
     "About": "Adds couple of new keybindings",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/14",
     "Tags": [ "Gameplay", "Utilities" ]
+  },
+
+  {
+    "Name": "Free Respec",
+    "Author": "ADDB",
+    "Id": {
+      "Id": "FreeRespec",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "105"
+      }
+    },
+    "About": "Allows changing the Respec Cost Behaviour.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/105",
+    "Tags": [ "Utilities" ]
   },
 
   {
@@ -54,6 +89,23 @@
   },
 
   {
+    "Name": "Playable Navigator",
+    "Author": "ADDB",
+    "Id": {
+      "Id": "PlayableNavigator",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "106"
+      }
+    },
+    "About": "Makes the Naviagor Origin pickeable for your Rogue Trader at Game Start.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/106",
+    "Tags": [ "Gameplay", "Content" ]
+  },
+
+  {
     "Name": "Rechargeable Grenades",
     "Author": "Arkive",
     "Id": {
@@ -68,6 +120,23 @@
     "About": "Basic grenades recharge at the end of combat.",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/44",
     "Tags": [ "Gameplay", "Utilities" ]
+  },
+
+  {
+    "Name": "ReDress",
+    "Author": "ADDB",
+    "Id": {
+      "Id": "ReDress",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "104"
+      }
+    },
+    "About": "Allows changing the (at character generation) chosen cosmetic options. Also allows changing origin outfit. ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/104",
+    "Tags": [ "Utilities" ]
   },
 
   {
