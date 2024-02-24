@@ -1,9 +1,9 @@
 # ModFinder
 
-### [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/releases/latest/download/ModFinder.zip) Latest Release
+### [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/CasDragon/ModFinder/releases/latest/download/ModFinder.zip) Latest Release
 
 
-A tool for browsing and managing Pathfinder: Wrath of the Righteous mods and their dependencies.
+A tool for browsing and managing Warhammer 40k Rogue Trader mods and their dependencies.
 
 ![Screenshot](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/blob/main/screenshots/main.png)
 
@@ -20,11 +20,9 @@ A tool for browsing and managing Pathfinder: Wrath of the Righteous mods and the
 
 ## For Users
 
-[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/releases/latest/download/ModFinder.zip) the latest release, extract the folder, and run `ModFinder.exe`!
+[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/CasDragon/ModFinder/releases/latest/download/ModFinder.zip) the latest release, extract the folder, and run `ModFinder.exe`!
 
 ### **You must have [.NET Destkop Runtime 5.0](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.0-windows-x64-installer) or later installed.**
-
-### You must have installed [UnityModManager](https://www.nexusmods.com/site/mods/21).
 
 ### If it doesn't work, see [Troubleshooting](#troubleshooting).
 
@@ -43,15 +41,15 @@ Tips:
     
 ### Missing a mod?
 
-Ask the mod developer to add it or file an [issue](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/issues/new).
+Ask the mod developer to add it or file an [issue](https://github.com/CasDragon/ModFinder/issues/new).
 
 ## For Mod Devs
 
-Currently ModFinder only supports UMM mods hosted on Nexus or GitHub.
+Currently ModFinder only supports mods hosted on Nexus or GitHub. It can handle both Owlcat Template mods and UMM based mods.
 
 To add (or change details about) your mod:
 
-1. Update [internal_manifest.json](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/blob/main/ManifestUpdater/Resources/internal_manifest.json)
+1. Update [internal_manifest.json](https://github.com/CasDragon/ModFinder/blob/RogueTrader/ManifestUpdater/Resources/internal_manifest.json)
     * Don't include any version data or description, this is automatically updated roughly every 2 hours
     * You can submit a PR or file an issue
     
@@ -70,12 +68,10 @@ If necessary you can host your own `ModManifest` JSON file by adding a direct do
 
 ### Want your mod removed from the list?
 
-File an [issue](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/issues/new) or submit a PR.
+File an [issue](https://github.com/CasDragon/ModFinder/issues/new) or submit a PR.
 
 ## Troubleshooting
 
-* Make sure you have [UnityModManager](https://www.nexusmods.com/site/mods/21) installed
-    * Run it and set it up for use with Wrath
 * Make sure you have [.NET Destkop Runtime 5.0](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.0-windows-x64-installer) or later installed
     * .NET 6.0 and soon .NET 7.0 should work as well, but if not try the link above
     * .NET 5.0 is not the same thing as the .NET Runtime 5.0 which is not the same thing as the .NET Desktop Runtime 5.0; if you think already have .NET 5.0 or 6.0 installed and it isn't working, try that specific link
@@ -86,20 +82,20 @@ File an [issue](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/i
         * ModFinder also writes files (logs) and deletes, moves, and unzips files related to mods you have installed
     * Update changelog includes a sha1 hash you can use to verify your download
     * Here are the scan results for v1.1 on [VirusTotal](https://www.virustotal.com/gui/file/882b5b1e5eb0dc2d51413a663d116b89856ab3f35681505e7d5286f1ecd0aee6/detection)
-* File an [issue](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/issues/new) or reach out on Discord
+* File an [issue](https://github.com/CasDragon/ModFinder/issues/new) or reach out on Discord
     * Share your log file: `%UserProfile%\AppData\Local\Modfinder\Log.txt`
 
 ### Problems with a mod?
 
-If there's an issue installing, downloading, displaying information about, or anything else regarding a specific mod file an [issue](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/issues/new). That includes mods that no longer work and are abandoned.
+If there's an issue installing, downloading, displaying information about, or anything else regarding a specific mod file an [issue](https://github.com/CasDragon/ModFinder/issues/new). That includes mods that no longer work and are abandoned.
 
 ### Other issues?
 
-You guessed it: file an [issue](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/issues/new). Include your log file: `%UserProfile%\AppData\Local\Modfinder\Log.txt`.
+You guessed it: file an [issue](https://github.com/CasDragon/ModFinder/issues/new). Include your log file: `%UserProfile%\AppData\Local\Modfinder\Log.txt`.
 
 ## Acknowledgements
-
-* Barley for starting this project in the first place ([ModFinder_WOTR](https://github.com/BarleyFlour/ModFinder_WOTR)) and working with Bubbles to complete like 80% before I decided to finish it
+* Wolfie for finishing the Wrath version of Modfinder, without which this RT port wouldn't exist
+* Barley for starting this project in the first place ([ModFinder_WOTR](https://github.com/BarleyFlour/ModFinder_WOTR))
 * Bubbles for his excellent work on the UI styling and Barley for handling the GitHub action setup
 * The modding community on [Discord](https://discord.com/invite/owlcat), an invaluable and supportive resource for help modding.
 * All the Owlcat modders who came before me, wrote documents, and open sourced their code.
