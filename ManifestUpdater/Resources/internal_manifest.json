@@ -36,6 +36,42 @@
   },
 
   {
+    "Name": "Disable Cutscene Overlay",
+    "Author": "Hambeard",
+    "Id": {
+      "Id": "DisableCSO",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "thehambeard",
+        "RepoName": "RTDisableCutsceneOverlay"
+      }
+    },
+    "About": "This mod will disable the annoying (IMO) camera overlay leaving you with a cleaner view.  I still like the letterbox effect but there is an option in UMM Menu (ctrl+f10) to disable letterboxing as well.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/116",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Enable All Archetypes",
+    "Author": "Ode",
+    "Id": {
+      "Id": "SnarkAllClasses",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "Snarkki",
+        "RepoName": "SnarkAllClasses"
+      }
+    },
+    "About": "Enable all classes for all archetypes",
+    "HomepageUrl": "https://github.com/Snarkki/SnarkAllClasses",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Enhanced Controls",
     "Author": "AlterAsc",
     "Id": {
