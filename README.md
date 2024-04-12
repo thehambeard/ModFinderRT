@@ -5,7 +5,8 @@
 
 A tool for browsing and managing Warhammer 40k Rogue Trader mods and their dependencies.
 
-![Screenshot](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/blob/main/screenshots/main.png)
+![2024-04-12 14 18 12 - MainWindow](https://github.com/CasDragon/ModFinder/assets/91767316/4eff53cd-61c0-4e47-97b6-99ca2a129a8d)
+
 
 ## Features
 
@@ -83,7 +84,7 @@ File an [issue](https://github.com/CasDragon/ModFinder/issues/new) or submit a P
     * Update changelog includes a sha1 hash you can use to verify your download
     * Here are the scan results for v1.1 on [VirusTotal](https://www.virustotal.com/gui/file/882b5b1e5eb0dc2d51413a663d116b89856ab3f35681505e7d5286f1ecd0aee6/detection)
 * File an [issue](https://github.com/CasDragon/ModFinder/issues/new) or reach out on Discord
-    * Share your log file: `%UserProfile%\AppData\Local\Modfinder\Log.txt`
+    * Share your log file: `%UserProfile%\AppData\Local\ModfinderRT\Log.txt`
 
 ### Problems with a mod?
 
@@ -91,7 +92,7 @@ If there's an issue installing, downloading, displaying information about, or an
 
 ### Other issues?
 
-You guessed it: file an [issue](https://github.com/CasDragon/ModFinder/issues/new). Include your log file: `%UserProfile%\AppData\Local\Modfinder\Log.txt`.
+You guessed it: file an [issue](https://github.com/CasDragon/ModFinder/issues/new). Include your log file: `%UserProfile%\AppData\Local\ModfinderRT\Log.txt`.
 
 ## Acknowledgements
 * Wolfie for finishing the Wrath version of Modfinder, without which this RT port wouldn't exist
