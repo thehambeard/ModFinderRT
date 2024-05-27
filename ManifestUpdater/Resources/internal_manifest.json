@@ -176,6 +176,24 @@
   },
 
   {
+    "Name": "Player Gender Override",
+    "Author": "Microsoftenator",
+    "Id": {
+      "Id": "PlayerGenderOverride",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "microsoftenator2022",
+        "RepoName": "PlayerGenderOverride"
+      }
+    },
+    "About": "While the base game allows you to set your character's voice independently of their body type, your character's gender is determined based on your chosen body type (I = male, II = female). With this mod, you can override this behaviour.",
+    "HomepageUrl": "https://github.com/microsoftenator2022/PlayerGenderOverride",
+    "Tags": [ "Gameplay", "Utilities" ]
+  },
+  
+  {
     "Name": "Rechargeable Grenades",
     "Author": "Arkive",
     "Id": {
