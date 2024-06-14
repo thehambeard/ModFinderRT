@@ -89,6 +89,24 @@
     "Tags": [ "Gameplay", "Utilities" ]
   },
 
+
+  {
+    "Name": "Equipment Transmog",
+    "Author": "ADDB",
+    "Id": {
+      "Id": "RTTransmog",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "135"
+      }
+    },
+    "About": "AAllows picking the visual equipment for a slot separately from actual equipment (weapons not supported). ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/135",
+    "Tags": [ "Utilities" ]
+  },
+
   {
     "Name": "Free Respec",
     "Author": "ADDB",
@@ -190,23 +208,6 @@
     },
     "About": "While the base game allows you to set your character's voice independently of their body type, your character's gender is determined based on your chosen body type (I = male, II = female). With this mod, you can override this behaviour.",
     "HomepageUrl": "https://github.com/microsoftenator2022/PlayerGenderOverride",
-    "Tags": [ "Gameplay", "Utilities" ]
-  },
-  
-  {
-    "Name": "Rechargeable Grenades",
-    "Author": "Arkive",
-    "Id": {
-      "Id": "RechargeableGrenades",
-      "Type": "Owlcat"
-    },
-    "Service": {
-      "Nexus": {
-        "ModID": "44"
-      }
-    },
-    "About": "Basic grenades recharge at the end of combat.",
-    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/44",
     "Tags": [ "Gameplay", "Utilities" ]
   },
 

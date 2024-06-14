@@ -1,0 +1,3 @@
+* Rewrite version parser for Github tags to avoid typos from nulling versions (see Micro's Alt Racial Traits github tags) (WotR/RT)
+* Rewrite mod extraction, as sometimes the DLL doesn't get extracted (WotR/RT)
+* Add 7z file handling (WotR/RT)
