@@ -212,6 +212,23 @@
   },
 
   {
+    "Name": "Rechargeable Grenades",
+    "Author": "Arkive",
+    "Id": {
+      "Id": "RechargeableGrenades",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "44"
+      }
+    },
+    "About": "Basic grenades recharge at the end of combat.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/44",
+    "Tags": [ "Gameplay", "Utilities" ]
+  },
+
+  {
     "Name": "ReDress",
     "Author": "ADDB",
     "Id": {
