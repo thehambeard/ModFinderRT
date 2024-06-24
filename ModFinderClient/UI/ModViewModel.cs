@@ -167,7 +167,7 @@ namespace ModFinder.UI
 
       if (requirements is null)
       {
-        Logger.Log.Info($"{Name} has no required modes.");
+        Logger.Log.Info($"{Name} has no required mods.");
         return;
       }
 
