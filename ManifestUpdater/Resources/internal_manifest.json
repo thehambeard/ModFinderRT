@@ -143,6 +143,24 @@
   },
 
   {
+    "Name": "Playable X",
+    "Author": "ADDB",
+    "Id": {
+      "Id": "PlayableX",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "xADDBx",
+        "RepoName": "PlayableX"
+      }
+    },
+    "About": "Makes the Navigator, Tech-Priest and Adepta Sororitas origins pickeable for your Rogue Trader at Game Start. This might also enable you to recruit multiple Navigators mercenaries.",
+    "HomepageUrl": "https://github.com/xADDBx/PlayableX",
+    "Tags": [ "Gameplay", "Content" ]
+  },
+  
+  {
     "Name": "Player Gender Override",
     "Author": "Microsoftenator",
     "Id": {
