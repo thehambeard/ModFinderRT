@@ -1,13 +1,14 @@
 ﻿using ModFinder.UI;
 using ModFinder.Util;
 using System;
+using System.Formats.Tar;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
 
 namespace ModFinder.Mod
 {
@@ -16,6 +17,7 @@ namespace ModFinder.Mod
   /// </summary>
   public static class ModInstaller
   {
+    private static MainWindow Window;
     public static async Task<InstallResult> Install(ModViewModel viewModel, bool isUpdate)
     {
       switch (viewModel.ModId.Type)
@@ -130,8 +132,16 @@ namespace ModFinder.Mod
     public static async Task<InstallResult> InstallFromZip(
       string path, ModViewModel viewModel = null, bool isUpdate = false)
     {
+
+      var c = Path.GetExtension(path);
+      if (c != ".zip")
+      {
+        MessageBox.Show(Window, "Provided file is not a file format we currently support (" + c + ")", "Unsupported File", MessageBoxButton.OK);
+        return new(InstallState.None);
+      }
+
+      InstallModManifest info; 
       using var zip = ZipFile.OpenRead(path);
-      InstallModManifest info;
       ModType modType = viewModel == null ? GetModTypeFromZIP(zip) : viewModel.ModId.Type;
 
       // If the mod is not in the first level folder in the zip we need to reach in and grab it

@@ -217,6 +217,7 @@ foreach (var manifest in tasks.Select(t => t.Result).Where(r => r != null))
 var targetUser = "CasDragon";
 var targetRepo = "ModFinder";
 var targetFile = "ManifestUpdater/Resources/generated_manifest.json";
+var targetBranch = "RogueTrader";
 
 updatedManifest.Sort((a, b) => a.Name.CompareTo(b.Name));
 
@@ -224,12 +225,12 @@ var serializedManifest = IOTool.Write(updatedManifest);
 
 if (doUpload)
 {
-  var currentFile = await github.Repository.Content.GetAllContentsByRef(targetUser, targetRepo, targetFile, "main");
+  var currentFile = await github.Repository.Content.GetAllContentsByRef(targetUser, targetRepo, targetFile, targetBranch);
   var updateFile =
-    new UpdateFileRequest("Update the mod manifest (bot)", serializedManifest, currentFile[0].Sha, "main", true);
+    new UpdateFileRequest("Update the mod manifest (bot)", serializedManifest, currentFile[0].Sha, targetBranch, true);
   var newblob = new NewBlob();
   newblob.Content = serializedManifest;
-  var blob = await github.Git.Blob.Create("CasDragon", "ModFinder", newblob);
+  var blob = await github.Git.Blob.Create(targetUser, targetRepo, newblob);
   if (blob.Sha != updateFile.Sha)
   {
     var result = await github.Repository.Content.UpdateFile(targetUser, targetRepo, targetFile, updateFile);
