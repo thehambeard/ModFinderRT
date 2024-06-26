@@ -132,13 +132,13 @@ namespace ModFinder.Mod
     public static async Task<InstallResult> InstallFromZip(
       string path, ModViewModel viewModel = null, bool isUpdate = false)
     {
-
+      /*
       var c = Path.GetExtension(path);
       if (c != ".zip")
       {
         MessageBox.Show(Window, "Provided file is not a file format we currently support (" + c + ")", "Unsupported File", MessageBoxButton.OK);
         return new(InstallState.None);
-      }
+      }*/
 
       InstallModManifest info; 
       using var zip = ZipFile.OpenRead(path);
