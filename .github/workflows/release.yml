@@ -49,7 +49,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        dotnet-version: ['5.0.x' ]
+        dotnet-version: ['8.0.x' ]
 
     steps:
       - uses: actions/checkout@v2
@@ -63,7 +63,7 @@ jobs:
         run: |
           $appversion = "${{ github.ref_name }}".substring(1)
           echo $appversion
-          dotnet build ./ModFinderClient --configuration Release -o ./output/ModFinder --no-restore /p:AssemblyVersion=$(appversion),VersionSuffix=rel,VersionPrefix=$(appversion)
+          dotnet build ./ModFinderClient --configuration Release -o ./output/ModFinder --no-restore /p:AssemblyVersion=$($appversion),VersionSuffix=rel,VersionPrefix=$($appversion)
       - name: list
         run: ls -r
       - name: Zip Release
