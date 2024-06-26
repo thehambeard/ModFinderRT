@@ -23,7 +23,7 @@ A tool for browsing and managing Warhammer 40k Rogue Trader mods and their depen
 
 [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/CasDragon/ModFinder/releases/latest/download/ModFinder.zip) the latest release, extract the folder, and run `ModFinder.exe`!
 
-### **You must have [.NET Destkop Runtime 5.0](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.0-windows-x64-installer) or later installed.**
+### **You must have [.NET Destkop Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.302-windows-x64-installer) or later installed.**
 
 ### If it doesn't work, see [Troubleshooting](#troubleshooting).
 
@@ -73,9 +73,7 @@ File an [issue](https://github.com/CasDragon/ModFinder/issues/new) or submit a P
 
 ## Troubleshooting
 
-* Make sure you have [.NET Destkop Runtime 5.0](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.0-windows-x64-installer) or later installed
-    * .NET 6.0 and soon .NET 7.0 should work as well, but if not try the link above
-    * .NET 5.0 is not the same thing as the .NET Runtime 5.0 which is not the same thing as the .NET Desktop Runtime 5.0; if you think already have .NET 5.0 or 6.0 installed and it isn't working, try that specific link
+* Make sure you have [.NET Destkop Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.302-windows-x64-installer) or later installed
 * Try [running it as an Administrator](https://www.itechtics.com/run-programs-administrator/)
 * Make sure your anti-virus is not blocking it
     * Some anti-virus flags it as a trojan
