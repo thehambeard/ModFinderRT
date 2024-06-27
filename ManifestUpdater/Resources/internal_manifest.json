@@ -102,7 +102,7 @@
         "ModID": "135"
       }
     },
-    "About": "AAllows picking the visual equipment for a slot separately from actual equipment (weapons not supported). ",
+    "About": "Allows picking the visual equipment for a slot separately from actual equipment.",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/135",
     "Tags": [ "Utilities" ]
   },
@@ -240,7 +240,7 @@
     "Service": {
       "Github": {
         "Owner": "xADDBx",
-        "RepoName": "ToyBox"
+        "RepoName": "ToyBox-RogueTrader"
       }
     },
     "About": "Toy Box is a cute and playful mod with 400+ cheats, tweaks and quality of life improvements. It was created in the spirit of Bag of Tricks & Cheat Menu but with a little different focus.",
