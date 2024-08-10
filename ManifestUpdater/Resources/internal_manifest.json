@@ -1,6 +1,23 @@
 [
   // Please keep sorted by Name.
   {
+    "Name": "Additional Reactivity",
+    "Author": "juliabel",
+    "Id": {
+      "Id": "AddReactivityProlog",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "132"
+      }
+    },
+    "About": "Additional reactivity for character backgrounds. English and russian languages. ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/132",
+    "Tags": [ "Gameplay" ]
+  },
+
+  {
     "Name": "Allow Modded Achievements",
     "Author": "AlterAsc",
     "Id": {
@@ -17,6 +34,24 @@
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/4",
     "Tags": [ "Gameplay", "Utilities" ]
   },
+
+  {
+    "Name": "Better Jae Talents",
+    "Author": "Mawootad",
+    "Id": {
+      "Id": "BetterJaeBuild",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "143"
+      }
+    },
+    "About": "Makes Jae's officer talents not a complete garbage fire  ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/143",
+    "Tags": [ "Gameplay", "Utilities" ]
+  },
+
 
   {
     "Name": "Better Type Sorting",
@@ -108,6 +143,23 @@
   },
 
   {
+    "Name": "Fix Cold Trader's Acumen",
+    "Author": "Mawootad",
+    "Id": {
+      "Id": "RTNuget",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "142"
+      }
+    },
+    "About": "Fixes Jae's Cold Trader's Acumen origin talent to give the listed bonuses to skills. ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/142",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Free Respec",
     "Author": "ADDB",
     "Id": {
@@ -121,6 +173,23 @@
     },
     "About": "Allows changing the Respec Cost Behaviour.",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/105",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Heavy Gunner AP Cost Fix",
+    "Author": "Mawootad",
+    "Id": {
+      "Id": "FixHeavyGunner",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "145"
+      }
+    },
+    "About": "Fixes Heavy Gunner and related talents increasing the cost of attacks ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/145",
     "Tags": [ "Utilities" ]
   },
 
@@ -159,7 +228,7 @@
     "HomepageUrl": "https://github.com/xADDBx/PlayableX",
     "Tags": [ "Gameplay", "Content" ]
   },
-  
+
   {
     "Name": "Player Gender Override",
     "Author": "Microsoftenator",

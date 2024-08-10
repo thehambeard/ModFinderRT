@@ -129,11 +129,6 @@ namespace ModFinder
                 long latest = ParseVersion(tag.GetString()[1..]);
                 var fileVersion = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
                 var productVersion = fileVersion.ProductVersion;
-                if (productVersion.Contains("-dev"))
-                {
-                  return;
-                }
-
                 if (latest > ParseVersion(productVersion))
                 {
                   if (MessageBox.Show(
@@ -159,7 +154,7 @@ namespace ModFinder
 
     private static long ParseVersion(string v)
     {
-      v = Regex.Replace(v, "-rel.*", "");
+      //v = Regex.Replace(v, "\\+(.*)", "");
       Logger.Log.Info("Version string equals - " + v);
       var c = v.Split('.');
       return int.Parse(c[0]) * 65536 + int.Parse(c[1]) * 256 + int.Parse(c[2]);
