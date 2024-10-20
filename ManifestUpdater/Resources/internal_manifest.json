@@ -212,6 +212,24 @@
   },
 
   {
+    "Name": "MorePartySlotsRT",
+    "Author": "ADDB",
+    "Id": {
+      "Id": "MorePartySlotsRT",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "xADDBx",
+        "RepoName": "MorePartySlotsRT"
+      }
+    },
+    "About": "Increase the amount of party slots (this does not affect visual slots; it will only allow adding more members to the party). ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/165",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Playable X",
     "Author": "ADDB",
     "Id": {
