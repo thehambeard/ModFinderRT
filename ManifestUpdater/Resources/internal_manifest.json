@@ -52,7 +52,6 @@
     "Tags": [ "Gameplay", "Utilities" ]
   },
 
-
   {
     "Name": "Better Type Sorting",
     "Author": "Arkive",
@@ -68,6 +67,40 @@
     "About": "This UMM mod patches inventory type sorting, so it sorts by subtypes, families, catgories, handedness, etc within weapons and armor categories ",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/94",
     "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Bigger Flagship",
+    "Author": "jonHinkerton",
+    "Id": {
+      "Id": "BiggerShip",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "167"
+      }
+    },
+    "About": "Increases the visual size of your flagship to make it more impressive.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/167",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Cold Trader Origin",
+    "Author": "jonHinkerton",
+    "Id": {
+      "Id": "ColdTraderOccupation",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "163"
+      }
+    },
+    "About": "APlay your Rogue Trader or custom companions as the Cold Trader origin exclusive to Jae.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/163",
+    "Tags": [ "Gameplay" ]
   },
 
   {
