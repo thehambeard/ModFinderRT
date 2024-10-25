@@ -210,6 +210,23 @@
   },
 
   {
+    "Name": "Heavy Bolter Patterned Variants",
+    "Author": "Ezfimods",
+    "Id": {
+      "Id": "EzfiPatternedHeavyBolters",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "168"
+      }
+    },
+    "About": "Adds four additional Heavy Bolters to the game. All are available to purchase from the Drusians. Safe to install into existing save files. ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/168",
+    "Tags": [ "Content" ]
+  },
+
+  {
     "Name": "Heavy Gunner AP Cost Fix",
     "Author": "Mawootad",
     "Id": {
