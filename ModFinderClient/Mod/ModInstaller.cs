@@ -9,6 +9,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using SharpCompress;
+using SharpCompress.Archives;
+using SharpCompress.Common;
 
 namespace ModFinder.Mod
 {
@@ -140,7 +143,7 @@ namespace ModFinder.Mod
         return new(InstallState.None);
       }*/
 
-      InstallModManifest info; 
+      InstallModManifest info;
       using var zip = ZipFile.OpenRead(path);
       ModType modType = viewModel == null ? GetModTypeFromZIP(zip) : viewModel.ModId.Type;
 
@@ -259,7 +262,7 @@ namespace ModFinder.Mod
         entry.ExtractToFile(destFileName, true);
       }
 
-      static void ExtractInParts(ZipArchive zip, string destination)
+      /*static void ExtractInParts(ZipArchive zip, string destination)
       {
         Logger.Log.Verbose("Starting to extract in parts");
         foreach (var part in zip.Entries)
@@ -290,30 +293,86 @@ namespace ModFinder.Mod
           }
         }
         return;
+      }*/
+
+      static void ExtractInParts(string path, string destination)
+      {
+        Logger.Log.Verbose("Starting to extract in parts");
+        using (var archive = SharpCompress.Archives.Zip.ZipArchive.Open(path))
+        {
+          foreach (var part in archive.Entries)
+          {
+            if (part.ToString() != "")
+            {
+              Logger.Log.Verbose("[Line 259] Destination is - " + destination.ToString());
+              Logger.Log.Verbose("[Line 260] File is - " + part.ToString());
+              var extPath = Path.Combine(destination, part.ToString());
+              Logger.Log.Verbose("[Line 262] Full path is - " + extPath.ToString());
+              try
+              {
+                part.WriteToFile(extPath, new ExtractionOptions()
+                {
+                  ExtractFullPath = true,
+                  Overwrite = true
+                });
+              }
+              catch (DirectoryNotFoundException ex)
+              {
+                var tempPath = extPath.Replace(part.ToString(), "");
+                //Logger.Log.Verbose(tempPath.ToString());
+                Directory.CreateDirectory(tempPath);
+              }
+              catch (Exception ex)
+              {
+                Logger.Log.Verbose("[Line 275] Destination is - " + destination.ToString());
+                Logger.Log.Verbose("[Line 276] File is - " + part.ToString());
+                Logger.Log.Verbose("[Line 277] Full path is - " + extPath.ToString());
+                Logger.Log.Verbose(ex.ToString());
+              }
+            }
+          }
+          return;
+        }
       }
 
       //Non-portrait mods just extract to the destination directory
       if (modType != ModType.Portrait)
       {
-        try {
+        try
+        {
           await Task.Run(() =>
           {
-            if (rootInZip != null)
+            using (var archive = SharpCompress.Archives.Zip.ZipArchive.Open(path))
             {
-              Directory.CreateDirectory(destination);
-              foreach (var entry in zip.Entries.Where(e => e.FullName.Length > rootInZip.Length && e.FullName.StartsWith(rootInZip)))
+              if (rootInZip != null)
               {
-                string entryDest = Path.Combine(destination, entry.FullName[rootInZip.Length..]);
-                if (entry.FullName.EndsWith("/"))
-                  Directory.CreateDirectory(entryDest);
-                else
-                  WriteToDirectory(entry, destination, rootInZip.Length);
+                Logger.Log.Verbose("Extracting the archive with root folder in pieces");
+                Directory.CreateDirectory(destination);
+                foreach (var entry in archive.Entries.Where(e => e.ToString().Length > rootInZip.Length && e.ToString().StartsWith(rootInZip)))
+                {
+                  string entryDest = Path.Combine(destination, entry.ToString()[rootInZip.Length..]);
+                  if (entry.IsDirectory)
+                    Directory.CreateDirectory(entryDest);
+                  else
+                    entry.WriteToFile(entryDest, new ExtractionOptions()
+                    {
+                      ExtractFullPath = true,
+                      Overwrite = true
+                    });
+                  //WriteToDirectory(entry, destination, rootInZip.Length);
+                }
               }
-            }
-            else
-            {
-              Logger.Log.Verbose(destination);
-              zip.ExtractToDirectory(destination, true);
+              else
+              {
+                Logger.Log.Verbose(destination);
+                //zip.ExtractToDirectory(destination, true);
+                Directory.CreateDirectory(destination);
+                archive.WriteToDirectory(destination, new ExtractionOptions()
+                {
+                  ExtractFullPath = true,
+                  Overwrite = true
+                });
+              }
             }
           });
         }
@@ -321,7 +380,11 @@ namespace ModFinder.Mod
         {
           Logger.Log.Verbose("[Line 311] Destination is - " + destination.ToString());
           Logger.Log.Verbose(ex.ToString());
-          ExtractInParts(zip, destination);
+          ExtractInParts(path, destination);
+        }
+        catch (Exception ex)
+        {
+          Logger.Log.Error(ex.ToString());
         }
       }
       else

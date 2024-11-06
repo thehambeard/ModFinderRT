@@ -193,6 +193,23 @@
   },
 
   {
+    "Name": "Flame Weapon Expert Fix",
+    "Author": "Seroster",
+    "Id": {
+      "Id": "Flamer Fix 2",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "171"
+      }
+    },
+    "About": "A small fix for Flame Weapon Expert not affecting 3 of the unique flamers.  ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/171",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Free Respec",
     "Author": "ADDB",
     "Id": {
