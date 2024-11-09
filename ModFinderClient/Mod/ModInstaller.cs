@@ -135,13 +135,6 @@ namespace ModFinder.Mod
     public static async Task<InstallResult> InstallFromZip(
       string path, ModViewModel viewModel = null, bool isUpdate = false)
     {
-      /*
-      var c = Path.GetExtension(path);
-      if (c != ".zip")
-      {
-        MessageBox.Show(Window, "Provided file is not a file format we currently support (" + c + ")", "Unsupported File", MessageBoxButton.OK);
-        return new(InstallState.None);
-      }*/
 
       InstallModManifest info;
       using var zip = ZipFile.OpenRead(path);
@@ -246,55 +239,6 @@ namespace ModFinder.Mod
         Logger.Log.Verbose($"Finished creating mod directory. \"{destination}\"");
       }
 
-      static void WriteToDirectory(ZipArchiveEntry entry, string destDirectory, int stripLeading)
-      {
-        Logger.Log.Verbose($"Starting to WriteToDirectory, destination \"{destDirectory}\"");
-        string destFileName = Path.GetFullPath(Path.Combine(destDirectory, entry.FullName[stripLeading..]));
-        Logger.Log.Verbose($"destination file name is  \"{destDirectory}\"");
-        string fullDestDirPath = Path.GetFullPath(destDirectory + Path.DirectorySeparatorChar);
-        Logger.Log.Verbose($"Full destination path is  \"{destDirectory}\"");
-        if (!destFileName.StartsWith(fullDestDirPath))
-        {
-          throw new System.InvalidOperationException("Entry is outside the target dir: " + destFileName);
-        }
-
-        Directory.CreateDirectory(Path.GetDirectoryName(destFileName));
-        entry.ExtractToFile(destFileName, true);
-      }
-
-      /*static void ExtractInParts(ZipArchive zip, string destination)
-      {
-        Logger.Log.Verbose("Starting to extract in parts");
-        foreach (var part in zip.Entries)
-        {
-          if (part.Name.ToString() != "")
-          {
-            Logger.Log.Verbose("[Line 259] Destination is - " + destination.ToString());
-            Logger.Log.Verbose("[Line 260] File is - " + part.FullName.ToString());
-            var extPath = Path.Combine(destination, part.FullName);
-            Logger.Log.Verbose("[Line 262] Full path is - " + extPath.ToString());
-            try
-            {
-              part.ExtractToFile(extPath, true);
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-              var tempPath = extPath.Replace(part.Name, "");
-              //Logger.Log.Verbose(tempPath.ToString());
-              Directory.CreateDirectory(tempPath);
-            }
-            catch (Exception ex)
-            {
-              Logger.Log.Verbose("[Line 275] Destination is - " + destination.ToString());
-              Logger.Log.Verbose("[Line 276] File is - " + part.FullName.ToString());
-              Logger.Log.Verbose("[Line 277] Full path is - " + extPath.ToString());
-              Logger.Log.Verbose(ex.ToString());
-            }
-          }
-        }
-        return;
-      }*/
-
       static void ExtractInParts(string path, string destination)
       {
         Logger.Log.Verbose("Starting to extract in parts");
@@ -304,10 +248,10 @@ namespace ModFinder.Mod
           {
             if (part.ToString() != "")
             {
-              Logger.Log.Verbose("[Line 259] Destination is - " + destination.ToString());
-              Logger.Log.Verbose("[Line 260] File is - " + part.ToString());
+              //Logger.Log.Verbose("[Line 259] Destination is - " + destination.ToString());
+              //Logger.Log.Verbose("[Line 260] File is - " + part.ToString());
               var extPath = Path.Combine(destination, part.ToString());
-              Logger.Log.Verbose("[Line 262] Full path is - " + extPath.ToString());
+              //Logger.Log.Verbose("[Line 262] Full path is - " + extPath.ToString());
               try
               {
                 part.WriteToFile(extPath, new ExtractionOptions()
@@ -319,7 +263,6 @@ namespace ModFinder.Mod
               catch (DirectoryNotFoundException ex)
               {
                 var tempPath = extPath.Replace(part.ToString(), "");
-                //Logger.Log.Verbose(tempPath.ToString());
                 Directory.CreateDirectory(tempPath);
               }
               catch (Exception ex)
@@ -346,7 +289,7 @@ namespace ModFinder.Mod
             {
               if (rootInZip != null)
               {
-                Logger.Log.Verbose("Extracting the archive with root folder in pieces");
+                //Logger.Log.Verbose("Extracting the archive with root folder in pieces");
                 Directory.CreateDirectory(destination);
                 foreach (var entry in archive.Entries.Where(e => e.ToString().Length > rootInZip.Length && e.ToString().StartsWith(rootInZip)))
                 {
@@ -359,13 +302,11 @@ namespace ModFinder.Mod
                       ExtractFullPath = true,
                       Overwrite = true
                     });
-                  //WriteToDirectory(entry, destination, rootInZip.Length);
                 }
               }
               else
               {
-                Logger.Log.Verbose(destination);
-                //zip.ExtractToDirectory(destination, true);
+                //Logger.Log.Verbose(destination);
                 Directory.CreateDirectory(destination);
                 archive.WriteToDirectory(destination, new ExtractionOptions()
                 {
