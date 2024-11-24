@@ -248,10 +248,7 @@ namespace ModFinder.Mod
           {
             if (part.ToString() != "")
             {
-              //Logger.Log.Verbose("[Line 259] Destination is - " + destination.ToString());
-              //Logger.Log.Verbose("[Line 260] File is - " + part.ToString());
               var extPath = Path.Combine(destination, part.ToString());
-              //Logger.Log.Verbose("[Line 262] Full path is - " + extPath.ToString());
               try
               {
                 part.WriteToFile(extPath, new ExtractionOptions()
@@ -289,19 +286,42 @@ namespace ModFinder.Mod
             {
               if (rootInZip != null)
               {
-                //Logger.Log.Verbose("Extracting the archive with root folder in pieces");
+                Logger.Log.Verbose("Extracting the archive with root folder in pieces");
                 Directory.CreateDirectory(destination);
-                foreach (var entry in archive.Entries.Where(e => e.ToString().Length > rootInZip.Length && e.ToString().StartsWith(rootInZip)))
+                foreach (var entry in archive.Entries)
                 {
-                  string entryDest = Path.Combine(destination, entry.ToString()[rootInZip.Length..]);
+                  string relativepath = Path.GetRelativePath(rootInZip, entry.ToString());
+                  if (relativepath.Contains(".."))
+                    continue;
+                  string entryDest = Path.Combine(destination, relativepath);
                   if (entry.IsDirectory)
+                  {
                     Directory.CreateDirectory(entryDest);
+                  }
                   else
-                    entry.WriteToFile(entryDest, new ExtractionOptions()
+                  {
+                    try
                     {
-                      ExtractFullPath = true,
-                      Overwrite = true
-                    });
+                      entry.WriteToFile(entryDest, new ExtractionOptions()
+                      {
+                        ExtractFullPath = true,
+                        Overwrite = true
+                      });
+                    }
+                    catch (DirectoryNotFoundException)
+                    {
+                      Directory.CreateDirectory(Path.GetDirectoryName(entryDest));
+                      entry.WriteToFile(entryDest, new ExtractionOptions()
+                      {
+                        ExtractFullPath = true,
+                        Overwrite = true
+                      });
+                    }
+                    catch (Exception ex)
+                    {
+                      Logger.Log.Verbose(ex.ToString());
+                    }
+                  }
                 }
               }
               else
