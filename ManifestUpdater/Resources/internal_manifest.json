@@ -25,8 +25,9 @@
       "Type": "Owlcat"
     },
     "Service": {
-      "Nexus": {
-        "ModID": "178"
+      "Github": {
+        "Owner": "DarthParametric",
+        "RepoName": "RT_Adepta_Sororitas_Sabbat_Pattern_Helmets"
       }
     },
     "About": "This mod adds the familiar Sabbat-pattern helmet employed by the Adepta Sororitas. This is a new model made by me (although a hooded version uses one of Owlcat's hood models)",
