@@ -289,7 +289,7 @@ namespace ModFinder
       }
       catch (Exception e)
       {
-        Logger.Log.Error("Failed to check UMM state. Make sure UMM is installed and launch WotR once.", e);
+        Logger.Log.Error("Failed to check UMM state. Make sure UMM is installed and launch Rogue Trader once.", e);
       }
     }
 
