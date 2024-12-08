@@ -282,12 +282,22 @@ namespace ModFinder.Mod
         {
           await Task.Run(() =>
           {
+            if (!Path.Exists(destination))
+            {
+              Directory.CreateDirectory(destination);
+            }
+            if (modType == ModType.Owlcat)
+            {
+              Directory.CreateDirectory(Path.Join(destination, "Assemblies"));
+              Directory.CreateDirectory(Path.Join(destination, "Blueprints"));
+              Directory.CreateDirectory(Path.Join(destination, "Bundles"));
+              Directory.CreateDirectory(Path.Join(destination, "Localization"));
+            }
             using (var archive = SharpCompress.Archives.Zip.ZipArchive.Open(path))
             {
               if (rootInZip != null)
               {
                 Logger.Log.Verbose("Extracting the archive with root folder in pieces");
-                Directory.CreateDirectory(destination);
                 foreach (var entry in archive.Entries)
                 {
                   string relativepath = Path.GetRelativePath(rootInZip, entry.ToString());
@@ -326,8 +336,6 @@ namespace ModFinder.Mod
               }
               else
               {
-                //Logger.Log.Verbose(destination);
-                Directory.CreateDirectory(destination);
                 archive.WriteToDirectory(destination, new ExtractionOptions()
                 {
                   ExtractFullPath = true,
