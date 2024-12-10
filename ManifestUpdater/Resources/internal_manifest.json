@@ -16,7 +16,7 @@
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/132",
     "Tags": [ "Gameplay" ]
   },
-  
+
   {
     "Name": "Adepta Sororitas Sabbat-Pattern Helmets",
     "Author": "DarthParametric",
@@ -276,6 +276,23 @@
     "About": "Fixes Heavy Gunner and related talents increasing the cost of attacks ",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/145",
     "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Homeworlds of the Expanse",
+    "Author": "OdinThePine",
+    "Id": {
+      "Id": "HomeworldsOfTheExpanse",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "181"
+      }
+    },
+    "About": "This mod expands the selection of Homeworlds available during character creation by introducing new custom options inspired by the game's original manuals. Each world is lore-friendly and emphasizes a specific playstyle or theme. ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/181",
+    "Tags": [ "Content" ]
   },
 
   {
