@@ -175,7 +175,6 @@
     "Tags": [ "Gameplay", "Utilities" ]
   },
 
-
   {
     "Name": "Equipment Transmog",
     "Author": "ADDB",
@@ -191,6 +190,40 @@
     "About": "Allows picking the visual equipment for a slot separately from actual equipment.",
     "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/135",
     "Tags": [ "Utilities" ]
+  },
+
+  {
+    "Name": "Expanded Archetypes",
+    "Author": "jonHinkerton",
+    "Id": {
+      "Id": "jhExpandedArchetypes",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "177"
+      }
+    },
+    "About": "Expanded Archetypes is a project to add new abilities and talents to the existing character class archetypes in Rogue Trader. The goal is to provide novelty, added variety, and more interesting build decisions.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/177",
+    "Tags": [ "Content" ]
+  },
+
+  {
+    "Name": "Expanded Colony Projects",
+    "Author": "jonHinkerton",
+    "Id": {
+      "Id": "jhColonyProjects",
+      "Type": "Owlcat"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "180"
+      }
+    },
+    "About": "More projects to keep your colonies busy with.",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/180",
+    "Tags": [ "Content" ]
   },
 
   {
