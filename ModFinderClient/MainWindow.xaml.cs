@@ -106,6 +106,17 @@ namespace ModFinder
       DetailsPanel.SizeChanged += DetailsPanel_SizeChanged;
     }
 
+    private static void SetVersionInHeader(string version)
+    {
+      Task.Run(() =>
+      {
+        Application.Current.Dispatcher.Invoke(() =>
+        {
+          Window.Header.Text += $" - {version}";
+        });
+      });
+    }
+
     private static void CheckForUpdate()
     {
       Task.Run(
@@ -129,6 +140,7 @@ namespace ModFinder
                 long latest = ParseVersion(tag.GetString()[1..]);
                 var fileVersion = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
                 var productVersion = fileVersion.ProductVersion;
+                SetVersionInHeader(productVersion);
                 if (latest > ParseVersion(productVersion))
                 {
                   if (MessageBox.Show(
