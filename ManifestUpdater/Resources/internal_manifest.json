@@ -339,7 +339,7 @@
       "Github": {
         "Owner": "microsoftenator2022",
         "RepoName": "MicroPatches",
-        "ReleaseFilter": "MicroPatches-Mod"
+        "ReleaseFilter": "MicroPatches\\-Mod"
       }
     },
     "About": "Tiny patches attempting to fix minor bugs and silence annoying log messages. Experimental patches require more testing and can be toggled in the mod settings (requires restart to take effect). If you encounter any issues with an experimental patch, let me know in the issues on this repository.",
