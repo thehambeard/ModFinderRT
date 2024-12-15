@@ -227,6 +227,24 @@
   },
 
   {
+    "Name": "Faster Loading Times",
+    "Author": "Seamato",
+    "Id": {
+      "Id": "FasterLoadingTimes",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Github": {
+        "Owner": "cstamford",
+        "RepoName": "FasterLoadingTimes"
+      }
+    },
+    "About": "Reduces loading times in Rogue Trader by up to 50%, depending on your specific hardware. Especially noticeable for saves in later acts. Let me know how much of an improvement you see! ",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/182",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Fix Cold Trader's Acumen",
     "Author": "Mawootad",
     "Id": {
