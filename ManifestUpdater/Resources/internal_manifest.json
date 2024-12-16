@@ -122,6 +122,23 @@
   },
 
   {
+    "Name": "Custom Flagship",
+    "Author": "jonHinkerton",
+    "Id": {
+      "Id": "CustomFlagship",
+      "Type": "UMM"
+    },
+    "Service": {
+      "Nexus": {
+        "ModID": "185"
+      }
+    },
+    "About": "If you've always wanted to cruise around the expanse in Calligos's big cruiser, here's your chance. This is a replacer for the appearance of the flagship in space battles. All the mechanics of the ship are untouched.,",
+    "HomepageUrl": "https://www.nexusmods.com/warhammer40kroguetrader/mods/185",
+    "Tags": [ "Utilities" ]
+  },
+
+  {
     "Name": "Disable Cutscene Overlay",
     "Author": "Hambeard",
     "Id": {
