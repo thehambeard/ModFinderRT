@@ -1,7 +1,11 @@
+$\color{red}\Huge{\textsf{This is my fork and will NOT be up to date!}}$
+
+$\color{red}\Huge{\textsf{Download latest ModFinder version for Rogue Trader here:}}$
+
+[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/CasDragon/ModFinder/releases/latest/download/ModFinder.zip)
+
+
 # ModFinder
-
-### [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/CasDragon/ModFinder/releases/latest/download/ModFinder.zip) Latest Release
-
 
 A tool for browsing and managing Warhammer 40k Rogue Trader mods and their dependencies.
 
