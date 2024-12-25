@@ -1,3 +1,5 @@
+$\color{red}\Huge{\textsf{Attention: If you are here from Bing!}}$
+
 $\color{red}\Huge{\textsf{This is my fork and will NOT be up to date!}}$
 
 $\color{red}\Huge{\textsf{Download latest ModFinder version for Rogue Trader here:}}$
